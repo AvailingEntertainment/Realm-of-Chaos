@@ -105,6 +105,7 @@ private:
 public:
     void getInput(bool waitingInput) {
         while (waitingInput) {
+            // Set timer, if no input after X amount of time, then update.
             Draw d;
             if (GetAsyncKeyState('W') != 0) {
                 d.movePlayer(-1, 0);
@@ -217,8 +218,8 @@ void start() {
     Display display;
     World world;
     
-    display.update();
     world.worldInit();
+    display.update();
 }
 
 void stop() {
