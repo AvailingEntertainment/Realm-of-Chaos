@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Display.h</itemPath>
+      <itemPath>Draw.h</itemPath>
+      <itemPath>Input.h</itemPath>
+      <itemPath>World.h</itemPath>
       <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -13,6 +17,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Display.cpp</itemPath>
+      <itemPath>Draw.cpp</itemPath>
+      <itemPath>Input.cpp</itemPath>
+      <itemPath>World.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -40,6 +48,22 @@
           <commandLine>-static-libgcc -static-libstdc++</commandLine>
         </ccTool>
       </compileType>
+      <item path="Display.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Display.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Draw.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Draw.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="World.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="World.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.h" ex="false" tool="3" flavor2="0">
@@ -65,6 +89,22 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Display.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Display.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Draw.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Draw.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="World.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="World.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.h" ex="false" tool="3" flavor2="0">

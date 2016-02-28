@@ -5,14 +5,20 @@
  */
 
 /* 
- * File:   newfile.h
+ * File:   World.h
  * Author: Logan
  *
- * Created on February 27, 2016, 1:02 AM
+ * Created on February 28, 2016, 2:42 PM
  */
 
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef WORLD_H
+#define WORLD_H
 
-#endif /* NEWFILE_H */
+class World {
+private:
+public:
+    void worldInit();
+};
+
+#endif /* WORLD_H */
 

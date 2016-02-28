@@ -5,14 +5,19 @@
  */
 
 /* 
- * File:   newfile.h
+ * File:   Input.h
  * Author: Logan
  *
- * Created on February 27, 2016, 1:02 AM
+ * Created on February 28, 2016, 2:44 PM
  */
 
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef INPUT_H
+#define INPUT_H
 
-#endif /* NEWFILE_H */
+class Input {
+public:
+    void getInput(bool);
+};
+
+#endif /* INPUT_H */
 
