@@ -1,25 +1,13 @@
 #include "Draw.h"
-
+#include "World.h"
 
 // map should be loaded from file, handled in World.cpp
-char map[5][21] =
-{
-    "####################",
-    "#                  :",
-    "#                  #",
-    "#   @              #",
-    "####################"
-};
-static int mapHeight = sizeof map / sizeof map[0];
-static int mapWidth = sizeof map[0] / sizeof(char);
 
 Draw::Draw()
-{
-}
+{}
 
 Draw::~Draw()
-{
-}
+{}
 
 void Draw::clearScreen()
 {
@@ -39,6 +27,35 @@ void Draw::clearScreen()
     SetConsoleCursorPosition(h, coord);
 }
 
+int Draw::getPos(int xy)
+{
+    int px, py;
+    for (int y = 0; y < gHeight; y++)
+    {
+        for (int x = 0; x < gWidth; x++)
+        {
+            switch (map[y][x])
+            {
+                case '@':
+                {
+                    px = x;
+                    py = y;
+                }   break;
+            }
+        }
+    }
+
+    if (xy == 1)
+    {
+        return px;
+    } else if (xy == 2)
+    {
+        return py;
+    }
+
+    return 0;
+}
+
 void Draw::drawUI(int pass, int x, int y)
 {
     if (pass == 1)
@@ -55,7 +72,7 @@ void Draw::draw()
     Sleep(50);
     clearScreen();
     drawUI(1,0,0);
-    for (int y = 0; y < mapHeight; y++)
+    for (int y = 0; y < gHeight; y++)
         std::cout << "   " << map[y] << std::endl;
     int x = getPos(1) - 1;
     int y = ((sizeof map / sizeof map[0]) - getPos(2)) - 1;
@@ -65,9 +82,9 @@ void Draw::draw()
 
 void Draw::movePlayer(int movey, int movex)
 {
-    for (int y = 0; y < mapHeight; y++)
+    for (int y = 0; y < gHeight; y++)
     {
-        for (int x = 0; x < mapWidth; x++)
+        for (int x = 0; x < gWidth; x++)
         {
             switch (map[y][x])
             {
@@ -95,32 +112,4 @@ void Draw::movePlayer(int movey, int movex)
             }
         }
     }
-}
-int Draw::getPos(int xy)
-{
-    int px, py;
-    for (int y = 0; y < mapHeight; y++)
-    {
-        for (int x = 0; x < mapWidth; x++)
-        {
-            switch (map[y][x])
-            {
-                case '@':
-                {
-                    px = x;
-                    py = y;
-                }   break;
-            }
-        }
-    }
-
-    if (xy == 1)
-    {
-        return px;
-    } else if (xy == 2)
-    {
-        return py;
-    }
-
-    return 0;
 }

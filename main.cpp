@@ -1,3 +1,6 @@
+#include "main.h"
+#include "Display.h"
+
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
@@ -5,10 +8,6 @@
 
 #define _WIN32_WINNT 0x0500
 #include <windows.h>
-
-#include "main.h"
-#include "Display.h"
-//#include "World.h"
 
 bool running = false;
 int inputCode;
@@ -33,7 +32,9 @@ void init()
     if (running)
         return;
     
+    World world;
     Display disp;
+    
     disp.screenInit();
     running = true;
 }

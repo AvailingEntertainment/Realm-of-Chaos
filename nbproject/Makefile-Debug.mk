@@ -38,7 +38,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/Display.o \
 	${OBJECTDIR}/Draw.o \
 	${OBJECTDIR}/Input.o \
-	${OBJECTDIR}/World.o \
+	${OBJECTDIR}/Player/Player.o \
+	${OBJECTDIR}/World/Items.o \
+	${OBJECTDIR}/World/World.o \
 	${OBJECTDIR}/main.o
 
 
@@ -81,10 +83,20 @@ ${OBJECTDIR}/Input.o: Input.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Input.o Input.cpp
 
-${OBJECTDIR}/World.o: World.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/Player/Player.o: Player/Player.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Player
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/World.o World.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Player/Player.o Player/Player.cpp
+
+${OBJECTDIR}/World/Items.o: World/Items.cpp 
+	${MKDIR} -p ${OBJECTDIR}/World
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/World/Items.o World/Items.cpp
+
+${OBJECTDIR}/World/World.o: World/World.cpp 
+	${MKDIR} -p ${OBJECTDIR}/World
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/World/World.o World/World.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
