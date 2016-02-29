@@ -77,8 +77,12 @@ void Draw::movePlayer(int movey, int movex)
                     {
                         case ' ':
                         {
-                            map[y+movey][x+movex] = '@';
                             map[y][x] = ' ';
+                            y=y+movey;
+                            x=x+movex;
+                            map[y][x] = '@';
+                            //map[y+movey][x+movex] = '@';
+                            //map[y][x] = ' ';
                             draw();
                             break;
                         }
