@@ -1,5 +1,4 @@
 #include "Draw.h"
-#include "Display.h"
 
 
 // map should be loaded from file, handled in World.cpp
@@ -9,20 +8,16 @@ char map[5][11] =
     "#        :",
     "#        #",
     "#   @    #",
-    "##########",
+    "##########"
 };
 
 Draw::Draw()
 {
-    int drawUI(int);
-    int getPos(int);
 }
 
 Draw::~Draw()
 {
 }
-
-int getPos(int xy);
 
 void Draw::clearScreen()
 {
@@ -42,31 +37,27 @@ void Draw::clearScreen()
     SetConsoleCursorPosition(h, coord);
 }
 
+void Draw::drawUI(int pass, int x, int y)
+{
+    if (pass == 1)
+    {
+        std::cout << "\n          Realm of Chaos\n\n\n";
+    } else if (pass == 2)
+    {
+        std::cout << "\n    Pos: " << x << "/" << y;
+    }
+}
+
 void Draw::draw()
 {
     clearScreen();
-    Display d;
-    d.drawUI(1, 0, 0);
+    drawUI(1,0,0);
     for (int y = 0; y < 5; y++)
         std::cout << "   " << map[y] << std::endl;
     int x = getPos(1);
     int y = getPos(2);
-    d.drawUI(2, x, y);
+    drawUI(1,0,0);
 }
-
-/*
-int drawUI(int pass)
-{
-    if (pass == 1)
-    {
-        std::cout << "\n      Realm of Chaos\n\n";
-    } else if (pass == 2)
-    {
-        std::cout << "\n    Pos: " << a << "/" << b;
-        std::cout << "\n\n";
-    } else { return 0; }
-}
-*/
 
 void Draw::movePlayer(int movey, int movex)
 {

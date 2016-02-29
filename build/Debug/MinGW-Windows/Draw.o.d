@@ -1,5 +1,3 @@
-build/Debug/MinGW-Windows/Draw.o: Draw.cpp Draw.h Display.h
+build/Debug/MinGW-Windows/Draw.o: Draw.cpp Draw.h
 
 Draw.h:
-
-Display.h:

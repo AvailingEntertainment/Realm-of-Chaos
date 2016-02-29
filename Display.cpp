@@ -16,47 +16,21 @@ Display::~Display()
 {
 }
 
-void Display::clearScreen()
-{
-    DWORD n, size;
-    COORD coord = {0};
-    CONSOLE_SCREEN_BUFFER_INFO csbi;
-
-    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    GetConsoleScreenBufferInfo(h, &csbi);
-    size = csbi.dwSize.X * csbi.dwSize.Y;
-
-    FillConsoleOutputCharacter(h, TEXT (' '), size, coord, &n);
-    GetConsoleScreenBufferInfo(h, &csbi);
-    FillConsoleOutputAttribute(h, csbi.wAttributes, size, coord, &n);
-
-    SetConsoleCursorPosition(h, coord);
-}
-
-int Display::drawUI(int i, int x, int y)
-{
-    
-    if (i == 1) {
-        std::cout << "\n      Realm of Chaos\n               Made by Logan Cunningham\n\n";
-    } else if (i == 2) {
-        std::cout << "\n    Pos: " << x << "/" << y;
-        std::cout << "\n\n";
-    }
-    return 0;
-}
-
 void Display::screenInit()
 {
     HANDLE hStdout;
+    HWND hDesktop = GetDesktopWindow();
+    HWND hConsole = GetConsoleWindow();
     COORD coord;
+    RECT r, d;
+    
+    GetWindowRect(hConsole, &r);
+    GetWindowRect(hDesktop, &d);
     GetStdHandle(STD_OUTPUT_HANDLE);
-    coord.X = 85;
-    coord.Y = 40;
-    HWND console = GetConsoleWindow();
-    RECT r;
-
-    GetWindowRect(console, &r);
-    MoveWindow(console, coord.X, coord.Y, 480, 320, TRUE);
+    coord.X = ((d.right / 2) - 300);
+    coord.Y = ((d.bottom / 2) - 160);
+    
+    MoveWindow(hConsole, coord.X, coord.Y, 480, 320, TRUE);
 }
 void Display::update()
 {

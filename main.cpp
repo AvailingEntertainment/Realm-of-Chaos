@@ -21,14 +21,16 @@ void stop();
 int main(int argc, char** argv)
 {
     init();
-    start();
+    
+    while (running)
+        start();
         
     return 0;
 }
 
 void init()
 {
-    if (running == true)
+    if (running)
         return;
     
     Display disp;
@@ -43,6 +45,7 @@ void start()
         Display disp;
         disp.update();
     }
+    stop();
 }
 
 void stop() {

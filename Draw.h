@@ -10,7 +10,7 @@ class Draw
 public:
     Draw();
     virtual ~Draw();
-    void drawUI(int pass);
+    void drawUI(int, int, int);
     int getPos(int xy);
     void draw();
     void movePlayer(int, int);
