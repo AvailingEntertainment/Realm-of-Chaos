@@ -10,12 +10,10 @@
 
 Display::Display()
 {
-    //ctor
 }
 
 Display::~Display()
 {
-    //dtor
 }
 
 void Display::clearScreen()
@@ -35,29 +33,19 @@ void Display::clearScreen()
     SetConsoleCursorPosition(h, coord);
 }
 
-void Display::firstDraw()
+int Display::drawUI(int i, int x, int y)
 {
-    Draw d;
-    drawUI(1);
-    d.draw();
-    drawUI(2);
-}
-
-int Display::drawUI(int i)
-{
-    Draw d;
+    
     if (i == 1) {
         std::cout << "\n      Realm of Chaos\n               Made by Logan Cunningham\n\n";
     } else if (i == 2) {
-        int a = d.getPos(1);
-        int b = d.getPos(2);
-        std::cout << "\n    Pos: " << a << "/" << b;
+        std::cout << "\n    Pos: " << x << "/" << y;
         std::cout << "\n\n";
     }
     return 0;
 }
 
-void Display::screenInit(bool fR)
+void Display::screenInit()
 {
     HANDLE hStdout;
     COORD coord;
@@ -69,16 +57,12 @@ void Display::screenInit(bool fR)
 
     GetWindowRect(console, &r);
     MoveWindow(console, coord.X, coord.Y, 480, 320, TRUE);
-
-    if (fR)
-            firstDraw();
-    fR = false;
 }
 void Display::update()
 {
-    bool waitingInput = true;
-    int keyCode;
+    Draw d;
+    d.draw();
 
     Input input;
-    input.getInput(waitingInput);
+    input.getInput();
 }

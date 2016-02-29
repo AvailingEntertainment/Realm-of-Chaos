@@ -8,7 +8,7 @@
 
 #include "main.h"
 #include "Display.h"
-#include "World.h"
+//#include "World.h"
 
 bool running = false;
 int inputCode;
@@ -18,33 +18,31 @@ void start();
 void checkStop();
 void stop();
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
     init();
-    
-    while(running) {
-        if (inputCode == 27) {
-            stop();
-        }
-        start();
-    }
-    
+    start();
+        
     return 0;
 }
 
-void init() {
+void init()
+{
     if (running == true)
         return;
     
-    bool firstRun = true;
     Display disp;
-    disp.screenInit(firstRun);
+    disp.screenInit();
     running = true;
 }
 
-void start() {
-    Display disp;
-    
-    disp.update();
+void start()
+{
+    while(inputCode != 27) {
+        //World world;
+        Display disp;
+        disp.update();
+    }
 }
 
 void stop() {

@@ -18,12 +18,12 @@ class Display {
 private:
     void clearScreen();
     void firstDraw();
-    int drawUI(int);
 public:
     Display();
     virtual ~Display();
-    void screenInit(bool);
+    void screenInit();
     void update();
+    int drawUI(int, int, int);
 };
 
 #endif /* DISPLAY_H */

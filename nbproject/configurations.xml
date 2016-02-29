@@ -45,6 +45,9 @@
       </toolsSet>
       <compileType>
         <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
           <commandLine>-static-libgcc -static-libstdc++</commandLine>
         </ccTool>
       </compileType>

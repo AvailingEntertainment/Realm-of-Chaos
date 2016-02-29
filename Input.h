@@ -32,7 +32,7 @@ class Input
     public:
         Input();
         virtual ~Input();
-        void getInput(bool);
+        void getInput();
     private:
 };
 
