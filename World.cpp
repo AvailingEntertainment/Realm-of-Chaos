@@ -1,4 +1,5 @@
 #include "World.h"
+#include "main.h"
 
 World::World()
 {
@@ -12,5 +13,5 @@ World::~World()
 
 void World::worldInit()
 {
-
+    return;
 }

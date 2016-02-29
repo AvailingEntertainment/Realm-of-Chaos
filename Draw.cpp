@@ -1,6 +1,16 @@
 #include "Draw.h"
 #include "Display.h"
 
+
+char map[5][11] =
+{
+    "##########",
+    "#        #",
+    "#        #",
+    "#   @    #",
+    "##########"
+};
+
 Draw::Draw()
 {
     //ctor
@@ -34,8 +44,6 @@ void Draw::draw()
     clearScreen();
     for (int y = 0; y < 5; y++)
         std::cout << "   " << map[y] << std::endl;
-    Display display;
-    display.update();
 }
 void Draw::movePlayer(int movey, int movex)
 {
@@ -47,10 +55,19 @@ void Draw::movePlayer(int movey, int movex)
             {
                 case '@':
                 {
-                    map[y+movey][x+movex] = ' ';
-                    map[y+movey][x+movex] = '@';
-                    Sleep(200);
-                    draw();
+                    switch (map[y+movey][x+movex])
+                    {
+                        case ' ':
+                        {
+                            map[y+movey][x+movex] = '@';
+                            map[y][x] = ' ';
+                            draw();
+                        } break;
+                        case '#':
+                        {   
+                            
+                        } break;
+                    }
                     /*
                     switch(map[y+movey][x+movex]) {
                         case ' ': {

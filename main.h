@@ -14,5 +14,15 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+class Main
+{
+public:
+    void stop(int);
+};
+
+extern bool running;
+extern int exitCode;
+extern int inputCode;
+
 #endif /* NEWFILE_H */
 
