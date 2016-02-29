@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-#include <iostream>
-#include <windows.h>
-
+#include "Input.h"
 #include "Draw.h"
+Input::Input()
+{
+    //ctor
+}
 
-class Input {
-private:
-public:
-    void getInput(bool waitingInput) {
+Input::~Input()
+{
+    //dtor
+}
+
+void Input::getInput(bool waitingInput) {
         while (waitingInput) {
             // Set timer, if no input after X amount of time, then update.
             Draw d;
@@ -37,4 +35,3 @@ public:
         }
         return;
     }
-};
