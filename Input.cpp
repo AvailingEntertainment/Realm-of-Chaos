@@ -29,7 +29,7 @@ void Input::getInput() {
             inputCode = KEY_ESC;
             running = false;
         }
-        Sleep(100);
+        
         waiting = false;
     }
 }

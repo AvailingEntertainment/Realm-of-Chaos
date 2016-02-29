@@ -3,8 +3,6 @@
 #include <iostream>
 #include "windows.h"
 
-extern int inMap;
-
 class Draw
 {
 public:
