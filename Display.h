@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Display.h
  * Author: Logan
  *
@@ -20,6 +20,8 @@ private:
     void firstDraw();
     int drawUI(int);
 public:
+    Display();
+    virtual ~Display();
     void screenInit(bool);
     void update();
 };
