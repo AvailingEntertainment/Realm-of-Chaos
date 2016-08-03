@@ -56,6 +56,9 @@ void menuHighlight();
 void pauseMenu();
 void inventory();
 
+void playerInventory();
+void playerStats();
+
 void getInput();
 void checkPosition();
 void updateScreen();
@@ -114,9 +117,7 @@ char inv[14][56] = {
     "# ,                                                    ",
     "# ,                                                    ",
     "# ,                                                    ",};
-char PLAYER = 0xE8;
-int ppX, ppY, npX, npY; // Player X/Y, Previous Player X/Y, Next Player X/Y
-int pX = 4; int pY = 13;
+
 int menuOptionSelected = 1;
 
 int paused = 0;
@@ -126,5 +127,66 @@ bool inMenu = false;
 
 std::string menu;
 int menuMultiplier;
+
+
+/* Player Related Variables*/
+char PLAYER = 0xE8;
+int ppX, ppY, npX, npY; // Player X/Y, Previous Player X/Y, Next Player X/Y
+int pX = 4; int pY = 13;
+
+struct playerSave {
+    char playerName[20];
+    char playerRace[2];
+    char playerClass[2];
+    char playerHealth[6];
+    char playerMana[6];
+    char playerMaxHealth[6];
+    char playerMaxMana[6];
+    
+    char playerXP[20];
+    char playerLevel[2];
+    char playerStrength[3];
+    char playerAgility[3];
+    char playerStamina[3];
+    char playerIntellect[3];
+    char playerSpirit[3];
+    char playerDamage[3];
+    char playerHit[3];
+    
+    char playerArmor[4];
+    char playerWeapon[4];
+    char playerGold[5];
+    char playerCoordX[3];
+    char playerCoordY[3];
+    char playerZoneId[2];
+    
+    char inventory0[6];
+    char inventory1[6];
+    char inventory2[6];
+    char inventory3[6];
+    char inventory4[6];
+    char inventory5[6];
+    char inventory6[6];
+    char inventory7[6];
+    char inventory8[6];
+    char inventory9[6];
+    char inventory10[6];
+    char inventory11[6];
+    
+}savefile;
+
+int race_color[] = {15, 10, 13, 14, 2, 7, 11, 6, 12, 11};
+int class_color[] = {7, 15, 11, 14, 13, 5, 1, 2, 6, 4};
+int quality_color[] = {8, 15, 10, 9, 13, 6};
+char *race_list[] = {
+    "Human", "Night Elf", "Gnome", "Dwarf", "Orc", "Undead", "Troll", "Tauren", "Blood Elf", "Draenei", "\n" };
+
+char *class_list[] = {
+    "Warrior", "Priest", "Mage", "Rogue", "Paladin", "Warlock", "Shaman", "Hunter", "Druid", "Death Knight", "\n"};
+
+char *title_list[] = {
+    "Knight", "Archon", "Wizard", "Assassin", "Crusader", "Necromancer", "Seer", "Ranger", "Warden", "Scourge Knight"};
+
+
 
 #endif

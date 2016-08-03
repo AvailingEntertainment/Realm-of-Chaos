@@ -237,6 +237,11 @@ void checkPosition() { // Broken aswell.. WHY!?!?!?!
     }
 }
 
+void playerInventory() {
+    
+    
+}
+
 void updateScreen() {
     setCursorPosition(30, 8);
     std::cout << "\n    Pos: " << pX << "/" << pY << " ";
