@@ -1,10 +1,17 @@
+#include "pch.h"
 #include "Display.h"
+#include "game.h"
 #include "Map.h"
 
 #include <iostream>
+#include <fcntl.h>
+#include <io.h>
 
 #define _WIN32_WINNT 0x0500
 #include <Windows.h>
+
+Display::Display(){}
+Display::~Display(){}
 
 void Display::display() {
 
@@ -12,6 +19,26 @@ void Display::display() {
 
 void Display::update() {
 
+}
+
+void Display::drawUI(int step) {
+	if (step == 1) {
+		std::wcout << "\n            ";
+		textColor(LIGHTRED, BLACK);
+		std::wcout << "Realm of Chaos\n\n";
+		for (int z = 0; z < 39; z++)
+			std::wcout << " ";
+		textColor(CYAN, BLACK);
+		std::wcout << "Developed and maintained by: Logan Cunningham.\n";
+		textColor(WHITE, BLACK);
+	}
+	else if (step == 2) {
+		//std::wcout << "\n    Pos: " << playerX << "/" << playerY;
+		std::wcout << "  (86, 25)\n";
+	}
+	else if (step == 3) {
+		std::wcout << "Item Description: ";
+	}
 }
 
 void Display::screenInit() {
@@ -29,11 +56,18 @@ void Display::screenInit() {
 	MoveWindow(hConsole, coord.X, coord.Y, 640, 480, TRUE);
 	SetConsoleTitle(L"Realm of Chaos");
 
+	// Draw map
+	Display::drawUI(1);
+
+	Map map;
 	
-}
 
-void Display::drawUI(int step) {
-
+	
+	for (int y = 0; y < 25; y++) {
+		std::wcout << y << std::endl;
+		//std::wcout << map[y] << std::endl;
+	}
+	running = true;
 }
 
 void Display::clearScreen() {
@@ -52,7 +86,7 @@ void Display::clearScreen() {
 }
 
 void Display::textColor(int fg, int bg) {
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);	
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	int color_attribute;
 	color_attribute = bg;

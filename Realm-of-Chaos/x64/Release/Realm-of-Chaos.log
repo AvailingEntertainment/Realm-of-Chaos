@@ -1,0 +1,6 @@
+﻿  Display.cpp
+c:\users\cunni\documents\github\realm-of-chaos\realm-of-chaos\display.cpp(3): fatal error C1083: Cannot open precompiled header file: 'x64\Release\Realm-of-Chaos.pch': No such file or directory
+  Map.cpp
+c:\users\cunni\documents\github\realm-of-chaos\realm-of-chaos\map.cpp(2): fatal error C1083: Cannot open precompiled header file: 'x64\Release\Realm-of-Chaos.pch': No such file or directory
+  Realm-of-Chaos.cpp
+c:\users\cunni\documents\github\realm-of-chaos\realm-of-chaos\realm-of-chaos.cpp(1): fatal error C1083: Cannot open precompiled header file: 'x64\Release\Realm-of-Chaos.pch': No such file or directory
