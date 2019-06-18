@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Display.h"
 #include "Map.h"
 
@@ -7,7 +8,6 @@
 #include <Windows.h>
 
 void Display::display() {
-
 }
 
 void Display::update() {
@@ -26,10 +26,8 @@ void Display::screenInit() {
 	coord.X = ((d.right / 2) - 300);
 	coord.Y = ((d.bottom / 2) - 160);
 
-	MoveWindow(hConsole, coord.X, coord.Y, 640, 480, TRUE);
+	MoveWindow(hConsole, coord.X, coord.Y, 680, 520, TRUE);
 	SetConsoleTitle(L"Realm of Chaos");
-
-	
 }
 
 void Display::drawUI(int step) {
