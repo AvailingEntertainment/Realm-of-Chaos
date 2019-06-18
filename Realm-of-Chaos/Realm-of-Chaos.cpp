@@ -1,23 +1,31 @@
 #include "pch.h"
-#include "game.h"
 #include "Display.h"
+#include "Map.h"
+
+#include <fcntl.h>
+#include <io.h>
+#include <iostream>
+#include <Windows.h>
+
+void gameLoop(Map m) {
+	while (running) {
+		// do nothing
+	}
+}
 
 #include <iostream>
 #include <Windows.h>
 
 int main()
 {
+	_setmode(_fileno(stdout), _O_U16TEXT);
 	Display d;
 	d.screenInit();
 
+	Map m;
+	m.drawMap();
+	//m.updateMap();
 
-}
-
-void gameLoop() {
-	while (running)
-	{
-		if (GetAsyncKeyState(VK_ESCAPE) != 0)
-			running = false;
-		// tick
-	}
+	running = true;
+	gameLoop(m);
 }

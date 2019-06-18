@@ -1,2 +1,8 @@
 ﻿  Realm-of-Chaos.cpp
-  Realm-of-Chaos.vcxproj -> C:\Users\cunni\Documents\GitHub\Realm-of-Chaos\x64\Debug\Realm-of-Chaos.exe
+  Display.cpp
+C:\Users\Logan\Documents\GitHub\Realm-of-Chaos\Realm-of-Chaos\Display.cpp(26,27): warning C4244:  '=': conversion from 'LONG' to 'SHORT', possible loss of data
+  Map.cpp
+C:\Users\Logan\Documents\GitHub\Realm-of-Chaos\Realm-of-Chaos\Display.cpp(27,28): warning C4244:  '=': conversion from 'LONG' to 'SHORT', possible loss of data
+  Generating Code...
+C:\Users\Logan\Documents\GitHub\Realm-of-Chaos\Realm-of-Chaos\Map.cpp(103,4): warning C4060:  switch statement contains no 'case' or 'default' labels
+  Realm-of-Chaos.vcxproj -> C:\Users\Logan\Documents\GitHub\Realm-of-Chaos\x64\Debug\Realm-of-Chaos.exe

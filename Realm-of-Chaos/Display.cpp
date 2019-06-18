@@ -14,7 +14,6 @@ Display::Display(){}
 Display::~Display(){}
 
 void Display::display() {
-
 }
 
 void Display::update() {
@@ -53,11 +52,9 @@ void Display::screenInit() {
 	coord.X = ((d.right / 2) - 300);
 	coord.Y = ((d.bottom / 2) - 160);
 
-	MoveWindow(hConsole, coord.X, coord.Y, 640, 480, TRUE);
+	MoveWindow(hConsole, coord.X, coord.Y, 680, 520, TRUE);
 	SetConsoleTitle(L"Realm of Chaos");
-
-	// Draw map
-	Display::drawUI(1);
+}
 
 	Map map;
 	

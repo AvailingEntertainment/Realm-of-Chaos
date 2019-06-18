@@ -3,5 +3,4 @@
 
 bool running = false;
 
-
 #endif //PCH_H
