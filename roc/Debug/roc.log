@@ -1,0 +1,6 @@
+﻿  Display.cpp
+C:\Users\Logan\source\repos\roc\roc\Display.cpp(49,27): warning C4244:  '=': conversion from 'LONG' to 'SHORT', possible loss of data
+  game.cpp
+  Generating Code...
+C:\Users\Logan\source\repos\roc\roc\Display.cpp(50,28): warning C4244:  '=': conversion from 'LONG' to 'SHORT', possible loss of data
+  roc.vcxproj -> C:\Users\Logan\source\repos\roc\Debug\roc.exe
