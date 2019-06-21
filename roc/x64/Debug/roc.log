@@ -1,0 +1,6 @@
+﻿  Display.cpp
+  Map.cpp
+  game.cpp
+  Generating Code...
+C:\Users\Logan\Documents\GitHub\Realm-of-Chaos\roc\Display.cpp(44,8): warning C4101:  'coord': unreferenced local variable
+  roc.vcxproj -> C:\Users\Logan\Documents\GitHub\Realm-of-Chaos\x64\Debug\roc.exe

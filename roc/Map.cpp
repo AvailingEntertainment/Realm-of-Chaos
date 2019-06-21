@@ -1,5 +1,6 @@
 #include "Map.h"
 #include "Display.h"
+#include "Player.h"
 
 #include <iostream>
 #include <fcntl.h>
@@ -7,22 +8,24 @@
 
 
 void Map::drawMap() {
-
 	Display disp;
+	
 	for (int y = 0; y < 25; y++) {
 		for (int x = 0; x < 86; x++) {
-			if (gameMap[y][x] == L'\u2593')
+			switch (gameMap[y][x])
+			{
+			case PLAYERU: // Player
 				disp.textColor(WHITE, BLACK);
-			else if (gameMap[y][x] == L'\u0467')
+				break;
+			case FULLBLOCK: // Full Block
+				disp.textColor(BLACK, WHITE);
+				break;
+			case TREE1U:
 				disp.textColor(GREEN, BLACK);
-			else if (gameMap[y][x] == '^')
-				disp.textColor(GREEN, BLACK);
-			else if (gameMap[y][x] == '6')
-				disp.textColor(GREEN, BLACK);
-			else if (gameMap[y][x] == '7')
-				disp.textColor(LIGHTGREEN, BLACK);
-			else
+				break;
+			default:
 				disp.textColor(WHITE, BLACK);
+			}
 
 			std::wcout << gameMap[y][x];
 
@@ -61,10 +64,7 @@ void Map::drawMap() {
 
 void Map::updateMap() {
 	Display disp;
-	disp.textColor(GREEN, BLACK);
-	std::wcout << "test\n";
-	disp.textColor(BLUE, BLACK);
-	std::wcout << "test2";
+	
 }
 
 /*
@@ -95,19 +95,10 @@ void Map::updateMap() {
 
 
 void Map::initMap() {
-	for (int y = 0; y < 4; y++) {
-		for (int x = 0; x < 10; x++) {
-			switch (map[y][x]) {
-
-			}
-		}
-	}
-
-
 	for (int y = 0; y < 25; y++) {
 		for (int x = 0; x < 86; x++) {
 			switch (gameMap[y][x]) {
-				/*  1-0 are builing blocks  */
+				/*  1-) are builing blocks  */
 			/*case '1':break;
 			case '!':break;
 			case '2':break;
@@ -121,10 +112,10 @@ void Map::initMap() {
 				case '5':break;
 				case '%':break;*/
 			case '6':
-				gameMap[y][x] = L'\u0467';
+				gameMap[y][x] = L'\ua65f';
 				break;
 			case '^':
-				gameMap[y][x] = L'\u0466';
+				gameMap[y][x] = L'\ua65e';
 				break;
 			case '7':
 				gameMap[y][x] = L'\u20B3';
@@ -134,11 +125,17 @@ void Map::initMap() {
 							case '*':break;
 							case '9':break;
 							case '(':break;
-							case '0':break;
 							case ')':break;*/
+			case '0': // player
+				gameMap[y][x] = L'\u263a';
+				break;
 			}
 		}
 	}
+	Player player;
+	int playerY = player.playerCoord(1);
+	int playerX = player.playerCoord(2);
+	gameMap[playerY][playerX] = PLAYERU;
 
 	drawMap();
 }

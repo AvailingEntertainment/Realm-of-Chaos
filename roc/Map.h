@@ -9,6 +9,10 @@ public:
 	void updateMap();
 	void initMap();
 private:
+#define PLAYERU L'\u263a'
+#define TREE1U L'\u2191'
+#define FULLBLOCK L'\u2593'
+
 	wchar_t gameMap[25][86] = { // [id][y][x] /* Dark Forest (test) */
 		L"#####################################################################################",
 		L"#   ^^^^^^^^^^^^^^^^^^^^^^^^^^                                                      #",

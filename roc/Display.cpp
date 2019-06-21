@@ -39,18 +39,39 @@ void Display::drawUI(int step) {
 
 void Display::screenInit() {
 	HWND hDesktop = GetDesktopWindow();
-	HWND hConsole = GetConsoleWindow();
+	HWND hConsole;// = GetConsoleWindow();
+	hConsole = GetForegroundWindow();
 	COORD coord;
 	RECT r, d;
+
+	int width = 720;
+	int height = 520;
 
 	GetWindowRect(hConsole, &r);
 	GetWindowRect(hDesktop, &d);
 	GetStdHandle(STD_OUTPUT_HANDLE);
-	coord.X = ((d.right / 2) - 300);
-	coord.Y = ((d.bottom / 2) - 160);
 
-	MoveWindow(hConsole, coord.X, coord.Y, 720, 520, TRUE);
+	// Sets window size
+	SetWindowPos(hConsole, NULL, 0, 0, width, height, SWP_SHOWWINDOW);
+
+	// move window to center of the screen
+	int consolePosX = ((d.right - d.left) / 2 - width / 2);
+	int consolePosY = ((d.bottom - d.top) / 2 - height / 2);
+	SetWindowPos(hConsole, HWND_NOTOPMOST, consolePosX, consolePosY, width, height, SWP_SHOWWINDOW || SWP_NOSENDCHANGING);
+
 	SetConsoleTitle("Realm of Chaos");
+
+	/******    Font    ******/
+	CONSOLE_FONT_INFOEX cfie;
+	cfie.cbSize = sizeof cfie;
+	cfie.nFont = 0;
+	cfie.dwFontSize.X = 0;
+	cfie.dwFontSize.Y = 16;
+	cfie.FontFamily = FF_DONTCARE;
+	cfie.FontWeight = FW_NORMAL;
+
+	wcscpy_s(cfie.FaceName, L"Calibri");
+	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfie);
 }
 
 void Display::clearScreen() {
